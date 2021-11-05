@@ -1,22 +1,40 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
+import { IonContent, IonHeader, IonLabel, IonPage, IonTitle, IonToolbar, IonItem, IonAvatar } from '@ionic/react';
 import './Home.css';
+import { data, Employee } from '../data/employees';
+import { Virtuoso } from 'react-virtuoso';
 
 const Home: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Blank</IonTitle>
+          <IonTitle>Employee Directory</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">Blank</IonTitle>
+            <IonTitle size="large">Employee Directory</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <ExploreContainer />
+
+        { data.length > 0 && 
+        <Virtuoso
+          data={data}
+          style={{ height: '100%', width: '100%' }}
+          itemContent={(index: React.Key , employee: Employee ) => (
+            <IonItem id={ `employeeItem_${ employee.id }` } key={ index } lines="none">
+              <IonAvatar slot="start">
+                <img src={`assets/avatars/${employee.id}-thumb.jpg`} />
+              </IonAvatar>
+              <IonLabel>
+                <h2>{ employee.firstName } { employee.lastName }</h2>
+                <p>{ employee.title }</p>
+                <p>{ employee.office }</p>
+              </IonLabel>
+						</IonItem>)}
+        />
+      }
       </IonContent>
     </IonPage>
   );
