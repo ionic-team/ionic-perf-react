@@ -31,7 +31,7 @@ const Home: React.FC = () => {
           itemContent={(index: React.Key , employee: Employee ) => (
             <IonItem id={ `employeeItem_${ employee.id }` } key={ index } lines="none">
               <IonAvatar slot="start">
-                <img src={`assets/avatars/${employee.id}-thumb.jpg`} />
+                <img src={`assets/avatars/${employee.id}-thumb.jpg`} alt={`${ employee.firstName }`} />
               </IonAvatar>
               <IonLabel>
                 <h2>{ employee.firstName } { employee.lastName }</h2>
