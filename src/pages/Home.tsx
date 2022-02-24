@@ -1,7 +1,7 @@
 import { IonContent, IonHeader, IonLabel, IonPage, IonTitle, IonToolbar, IonItem, IonAvatar, useIonViewWillEnter } from '@ionic/react';
 import './Home.css';
-import { data, Employee } from '../data/employees';
-import { Virtuoso } from 'react-virtuoso';
+//import { data, Employee } from '../data/employees';
+//import { Virtuoso } from 'react-virtuoso';
 import { SplashScreen } from '@capacitor/splash-screen';
 
 const Home: React.FC = () => {
@@ -24,7 +24,7 @@ const Home: React.FC = () => {
           </IonToolbar>
         </IonHeader>
 
-        { data.length > 0 && 
+        {/* { data.length > 0 && 
         <Virtuoso
           data={data}
           style={{ height: '100%', width: '100%' }}
@@ -40,7 +40,7 @@ const Home: React.FC = () => {
               </IonLabel>
 						</IonItem>)}
         />
-      }
+      } */}
       </IonContent>
     </IonPage>
   );
