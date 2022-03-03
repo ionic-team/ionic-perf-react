@@ -1,7 +1,10 @@
 import { Redirect, Route } from 'react-router-dom';
-import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
+import { IonApp, IonIcon, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import Home from './pages/Home';
+import { images, people } from 'ionicons/icons';
+import Directory from './pages/Directory';
+import Gallery from './pages/Gallery';
+import { SplashScreen } from '@capacitor/splash-screen';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -21,22 +24,48 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import React from 'react';
 
 setupIonicReact();
 
-const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-      <IonRouterOutlet>
-        <Route exact path="/home">
-          <Home />
-        </Route>
-        <Route exact path="/">
-          <Redirect to="/home" />
-        </Route>
-      </IonRouterOutlet>
-    </IonReactRouter>
-  </IonApp>
-);
+const App: React.FC = () => {
+  React.useEffect(() => {
+    SplashScreen.hide();
+  }, []);
+
+  return (
+    <IonApp>
+      <IonReactRouter>
+        <IonTabs>
+          <IonRouterOutlet>
+            <Route exact path="/directory">
+              <Directory />
+            </Route>
+            <Route exact path="/gallery">
+              <Gallery />
+            </Route>
+            <Route exact path="/">
+              <Redirect to="/directory" />
+            </Route>
+          </IonRouterOutlet>
+          <IonTabBar slot="bottom">
+            <IonTabButton tab="directory" href="/directory">
+              <IonIcon icon={people} />
+              <IonLabel>Directory</IonLabel>
+            </IonTabButton>
+            <IonTabButton tab="gallery" href="/gallery">
+              <IonIcon icon={images} />
+              <IonLabel>Gallery</IonLabel>
+            </IonTabButton>
+            {/* <IonTabButton tab="tab3" href="/tab3">
+              <IonIcon icon={home} />
+              <IonLabel>Tab 3</IonLabel>
+            </IonTabButton> */}
+          </IonTabBar>
+        </IonTabs>
+      </IonReactRouter>
+    </IonApp>
+  );
+}
 
 export default App;
