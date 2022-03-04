@@ -1,18 +1,26 @@
-ion-card-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.headerCard {
+  ion-card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    ion-avatar {
+      width: 200px;
+      height: 200px;
+    }
+
+    ion-card-title {
+      margin-top: 8px;
+    }
+  }
 }
 
-.headerCard {
-  padding: 16px;
-
-  ion-avatar {
-    width: 200px;
-    height: 200px;
+.detailsCard {
+  ion-card-content {
+    padding: 0;
   }
 
-  ion-card-title {
-    margin-top: 8px;
+  ion-item {
+    --background: transparent;
   }
 }

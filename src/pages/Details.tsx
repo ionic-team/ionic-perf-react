@@ -24,7 +24,6 @@ import styles from "./Details.module.scss";
 const Details: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const employee = useStoreState(EmployeeStore, getEmployee(id));
-  console.log(employee);
 
   return (
     <IonPage>
@@ -57,28 +56,30 @@ const Details: React.FC = () => {
           </IonCardContent>
         </IonCard>
 
-        <IonCard>
-          <IonItem>
-            <IonIcon icon={mail} slot="start" />
-            <IonLabel>{employee.email}</IonLabel>
-          </IonItem>
+        <IonCard class={styles.detailsCard}>
+          <IonCardContent>
+            <IonItem>
+              <IonIcon icon={mail} slot="start" />
+              <IonLabel>{employee.email}</IonLabel>
+            </IonItem>
 
-          <IonItem>
-            <IonIcon icon={call} slot="start" />
-            <IonLabel>{employee.phone}</IonLabel>
-          </IonItem>
+            <IonItem>
+              <IonIcon icon={call} slot="start" />
+              <IonLabel>{employee.phone}</IonLabel>
+            </IonItem>
 
-          <IonItem>
-            <IonIcon icon={phonePortrait} slot="start" />
-            <IonLabel>{employee.cell}</IonLabel>
-          </IonItem>
+            <IonItem>
+              <IonIcon icon={phonePortrait} slot="start" />
+              <IonLabel>{employee.cell}</IonLabel>
+            </IonItem>
 
-          <IonItem>
-            <IonIcon icon={location} slot="start" />
-            <IonLabel>
-              {`${employee.location.street.number} ${employee.location.street.name}, ${employee.location.city}, ${employee.location.state} ${employee.location.postcode}`}
-            </IonLabel>
-          </IonItem>
+            <IonItem>
+              <IonIcon icon={location} slot="start" />
+              <IonLabel class="ion-text-wrap">
+                {`${employee.location.street.number} ${employee.location.street.name}, ${employee.location.city}, ${employee.location.state} ${employee.location.postcode}`}
+              </IonLabel>
+            </IonItem>
+          </IonCardContent>
         </IonCard>
       </IonContent>
     </IonPage>
