@@ -32,16 +32,10 @@ const Details: React.FC = () => {
           <IonButtons slot="start">
             <IonBackButton />
           </IonButtons>
-          <IonTitle>Employee Details</IonTitle>
+          <IonTitle>Details</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Employee Details</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-
         <IonCard class={styles.headerCard}>
           <IonCardContent>
             <IonAvatar>

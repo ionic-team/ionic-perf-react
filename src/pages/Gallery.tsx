@@ -27,12 +27,6 @@ const Gallery = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Gallery</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-
         <IonGrid>
           <IonRow>
             {employees.map((employee: Employee, index: number) => (
