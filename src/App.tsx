@@ -10,7 +10,7 @@ import {
   setupIonicReact,
 } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
-import { images, people } from "ionicons/icons";
+import { images, imagesOutline, people, peopleOutline } from "ionicons/icons";
 import Directory from "./pages/Directory";
 import Gallery from "./pages/Gallery";
 import { SplashScreen } from "@capacitor/splash-screen";
@@ -33,7 +33,7 @@ import "@ionic/react/css/display.css";
 
 /* Theme variables */
 import "./theme/variables.css";
-import React from "react";
+import React, { useState } from "react";
 import Details from "./pages/Details";
 import { fetchEmployees } from "./store/EmployeeStore";
 
@@ -45,10 +45,12 @@ const App: React.FC = () => {
     fetchEmployees(false);
   }, []);
 
+  const [selectedTab, setSelectedTab] = useState("directory");
+
   return (
     <IonApp>
       <IonReactRouter>
-        <IonTabs>
+        <IonTabs onIonTabsWillChange={(e) => setSelectedTab(e.detail.tab)}>
           <IonRouterOutlet>
             <Route exact path="/directory">
               <Directory />
@@ -65,11 +67,15 @@ const App: React.FC = () => {
           </IonRouterOutlet>
           <IonTabBar slot="bottom">
             <IonTabButton tab="directory" href="/directory">
-              <IonIcon icon={people} />
+              <IonIcon
+                icon={selectedTab === "directory" ? people : peopleOutline}
+              />
               <IonLabel>Directory</IonLabel>
             </IonTabButton>
             <IonTabButton tab="gallery" href="/gallery">
-              <IonIcon icon={images} />
+              <IonIcon
+                icon={selectedTab === "gallery" ? images : imagesOutline}
+              />
               <IonLabel>Gallery</IonLabel>
             </IonTabButton>
           </IonTabBar>

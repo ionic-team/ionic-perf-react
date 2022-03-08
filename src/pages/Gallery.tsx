@@ -10,10 +10,10 @@ import {
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
+import { useStoreState } from "pullstate";
 import { Employee } from "../data/employees";
 import EmployeeStore from "../store/EmployeeStore";
 import { getEmployees } from "../store/Selectors";
-import { useStoreState } from "pullstate";
 import styles from "./Gallery.module.scss";
 
 const Gallery = () => {

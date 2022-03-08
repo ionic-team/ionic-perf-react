@@ -2,13 +2,11 @@ import { createSelector } from "reselect";
 
 const getState = (state) => state;
 
-//  General getters
 export const getEmployees = createSelector(
   getState,
   (state) => state.employees
 );
 
-//	Specific getters
 export const getEmployee = (uuid) =>
   createSelector(
     getState,

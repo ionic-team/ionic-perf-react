@@ -1,5 +1,5 @@
-import { Store } from "pullstate";
 import axios from "axios";
+import { Store } from "pullstate";
 import { DATA, Employee } from "../data/employees";
 
 const EmployeeStore = new Store({
@@ -7,18 +7,6 @@ const EmployeeStore = new Store({
 });
 
 export default EmployeeStore;
-
-// export const addSavedQuote = (id) => {
-//   QuoteStore.update((s) => {
-//     s.saved = [...s.saved, id];
-//   });
-// };
-
-// export const removeSavedQuote = (id) => {
-//   QuoteStore.update((s) => {
-//     s.saved = s.saved.filter((savedId) => parseInt(savedId) !== parseInt(id));
-//   });
-// };
 
 export const fetchEmployees = async (useApi: boolean) => {
   let employees = DATA;

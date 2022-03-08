@@ -25,12 +25,6 @@ const Directory: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Employee Directory</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-
         {employees.length > 0 && (
           <Virtuoso
             data={employees}
